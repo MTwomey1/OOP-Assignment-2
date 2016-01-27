@@ -14,6 +14,10 @@ void draw()
   if(screen == 0)
   {
     image(startscreen, 0, 0, width, height); // Show opeing image
+    fill(127);
+    stroke(0);
+    strokeWeight(3);
+    rect(width * 0.31, height * 0.05, 700, 200, 10);
     fill(255);
     String start = "Mainframe Defence"; // Main menu display text
     stroke(255);
@@ -65,7 +69,15 @@ void draw()
   
   if(screen == 1)
   {
-    background(0);
+    background(127);
+    //Drawing Path
+    fill(255);
+    rect(0, height * 0.1, width * 0.9, height * 0.15);
+    rect(width * 0.8, height * 0.15, 192.5, 432);
+    rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
+    rect(width * 0.1, height * 0.4, 192.5, 432);
+    rect(width * 0.1, height * 0.7, width, height * 0.15);
+
   }// End screen 1
   
 }// End draw()
