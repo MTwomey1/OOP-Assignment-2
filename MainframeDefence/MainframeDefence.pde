@@ -7,6 +7,7 @@ void setup()
   
   // Load images here to avoid memory problems
   startscreen = loadImage("server2.jpg");
+  
 }// End Setup()
 
 void draw()
@@ -77,6 +78,10 @@ void draw()
     rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
     rect(width * 0.1, height * 0.4, 192.5, 432);
     rect(width * 0.1, height * 0.7, width, height * 0.15);
+    
+    Bug bug = new Bug(200, 25);
+
+    bug.render();
 
   }// End screen 1
   
