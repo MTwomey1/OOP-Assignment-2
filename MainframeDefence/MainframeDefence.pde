@@ -4,11 +4,15 @@ int screen; // Variable to change screen
 void setup()
 {
   size(displayWidth, displayHeight);
+  Bug bug = new Bug(200, 25);
+  gameObjects.add(bug);
   
   // Load images here to avoid memory problems
   startscreen = loadImage("server2.jpg");
   
 }// End Setup()
+
+ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 void draw()
 {
@@ -79,9 +83,13 @@ void draw()
     rect(width * 0.1, height * 0.4, 192.5, 432);
     rect(width * 0.1, height * 0.7, width, height * 0.15);
     
-    Bug bug = new Bug(200, 25);
+    for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
+    {
+      GameObject go = gameObjects.get(i);
+      go.update();
+      go.render();
+    }
 
-    bug.render();
 
   }// End screen 1
   

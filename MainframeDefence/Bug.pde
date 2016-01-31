@@ -1,4 +1,4 @@
-class Bug
+class Bug extends GameObject
 {
   float x;
   float y;
@@ -9,14 +9,52 @@ class Bug
     this.y = y; 
   }
   
+  void update()
+  {
+    if(x < width * 0.92 && y == 25 )
+    {
+        x += 10;
+     }
+     if(x > width * 0.92 && y == 25)
+     {
+       x = width * 0.92;
+     }
+     
+     if(x == width * 0.92 && y == 25)
+     {
+       y = 300;
+        
+      }
+      if(y >= 300 && y < height *0.58) 
+      {
+        y += 5;
+      }
+      if(y > height * 0.58 && x == width * 0.92)
+      {
+        y = height * 0.58;
+      }
+      if(y == height * 0.58 && x > 200)
+      {
+        x -= 10;
+      }
+  }
+  
   void render()
   {
     pushMatrix();
       translate(x, y);
-      x += 1;
+       
       pushMatrix();
       
-      rotate(radians(90));
+      rotate(radians(90)); 
+      if(x >= width * 0.92)
+      {
+        rotate(radians(90));
+      }
+      if(y >= height * 0.6)
+      {
+        rotate(radians(90));
+      }
       translate(0,0);
       
       stroke(0);
@@ -38,11 +76,11 @@ class Bug
       
       line(260, 200, 225, 120);
       line(225, 120, 200, 123);
-      
+    
       line(360, 200, 395, 120);
       line(395, 120, 420, 123);
       stroke(255);
       popMatrix();
-    popMatrix();
+    popMatrix();    
   }
 }

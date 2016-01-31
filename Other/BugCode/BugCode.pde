@@ -7,6 +7,7 @@ int x;
 
 void draw()
 {  
+  if (frameCount % 2 == 0){
   background(255);
   pushMatrix();
   translate(x, 50);
@@ -38,4 +39,4 @@ void draw()
   line(395, 120, 420, 123);
   popMatrix();
   popMatrix();
-}
+}}
