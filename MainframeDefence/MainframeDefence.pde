@@ -1,13 +1,24 @@
 PImage startscreen;
 int screen; // Variable to change screen
 int health = 10;
+int level = 1;
 
 void setup()
 {
   size(displayWidth, displayHeight);
-  Bug bug = new Bug(200, 25);
-  gameObjects.add(bug);
   
+  for(int j = 0; j < level; j ++)
+  {
+    for(int i = 0; i < 5; i ++)
+    {
+        if (frameCount % 180 == 0)
+        {
+        Bug bug = new Bug(200, 25);
+        gameObjects.add(bug);
+      
+    }
+  }
+      }
   // Load images here to avoid memory problems
   startscreen = loadImage("server2.jpg");
   
