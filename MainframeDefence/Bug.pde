@@ -2,6 +2,8 @@ class Bug extends GameObject
 {
   float x;
   float y;
+  float x2;
+  float y2;
   
   Bug(float x, float y)
   {
@@ -33,10 +35,16 @@ class Bug extends GameObject
       {
         y = height * 0.58;
       }
-      if(y == height * 0.58 && x > 200)
+      if(y == height * 0.58 && x == width * 0.92 && y2 == 0)
       {
-        x -= 10;
+        y2 = -230;
+        x2 = -40;    
       }
+      if(x2 == - 40 && y2 > -1580)
+      {
+       y2 -= 5;    
+      }
+
   }
   
   void render()
@@ -47,15 +55,17 @@ class Bug extends GameObject
       pushMatrix();
       
       rotate(radians(90)); 
+      
       if(x >= width * 0.92)
       {
         rotate(radians(90));
       }
-      if(y >= height * 0.6)
+      if(y == height * 0.58 && x == width * 0.92)
       {
         rotate(radians(90));
       }
-      translate(0,0);
+      
+      translate(x2,y2);
       
       stroke(0);
       scale(0.5);
