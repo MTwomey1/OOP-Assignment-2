@@ -4,6 +4,7 @@ class Bug extends GameObject
   float y;
   float x2;
   float y2;
+  int speed = 2;
   
   Bug(float x, float y)
   {
@@ -15,7 +16,7 @@ class Bug extends GameObject
   {
     if(x < width * 0.92 && y == 25 )
     {
-        x += 10;
+        x += speed;
      }
      if(x > width * 0.92 && y == 25)
      {
@@ -29,7 +30,7 @@ class Bug extends GameObject
       }
       if(y >= 300 && y < height *0.58) 
       {
-        y += 5;
+        y += speed;
       }
       if(y > height * 0.58 && x == width * 0.92)
       {
@@ -40,9 +41,14 @@ class Bug extends GameObject
         y2 = -230;
         x2 = -40;    
       }
-      if(x2 == - 40 && y2 > -1580)
+      if(x2 == - 40 && y2 > -1600)
       {
-       y2 -= 5;    
+       y2 -= speed;   
+      }
+      if(y2 == -1600)
+      {
+        health --;
+        gameObjects.remove(this);
       }
 
   }

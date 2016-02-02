@@ -1,5 +1,6 @@
 PImage startscreen;
 int screen; // Variable to change screen
+int health = 10;
 
 void setup()
 {
@@ -80,8 +81,8 @@ void draw()
     rect(0, height * 0.1, width * 0.9, height * 0.15);
     rect(width * 0.8, height * 0.15, 192.5, 432);
     rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
-    rect(width * 0.1, height * 0.4, 192.5, 432);
-    rect(width * 0.1, height * 0.7, width, height * 0.15);
+    //rect(width * 0.1, height * 0.4, 192.5, 432);
+    //rect(width * 0.1, height * 0.7, width, height * 0.15);
     
     for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
     {
@@ -89,6 +90,8 @@ void draw()
       go.update();
       go.render();
     }
+    
+    text("Health = " + health, width * 0.1, height * 0.9);
 
 
   }// End screen 1
