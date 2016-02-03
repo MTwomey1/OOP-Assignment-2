@@ -9,7 +9,6 @@ void setup()
 {
   size(displayWidth, displayHeight);
   
-
   // Load images here to avoid memory problems
   startscreen = loadImage("server2.jpg");
   cpu = loadImage("CPU.jpg");
@@ -17,7 +16,6 @@ void setup()
 }// End Setup()
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-
 
 void draw()
 {
@@ -85,26 +83,21 @@ void draw()
     rect(0, height * 0.1, width * 0.9, height * 0.15);
     rect(width * 0.8, height * 0.15, 192.5, 432);
     rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
-    //rect(width * 0.1, height * 0.4, 192.5, 432);
-    //rect(width * 0.1, height * 0.7, width, height * 0.15);
     image(cpu, 10, height * 0.38, 200, 200);
     
-      if(begin == 1)
+    if(begin == 1)
+    {
+      if(i < 5)
       {
-        if(i < 5)
+        if (frameCount % 120 == 0)
         {
-          if (frameCount % 120 == 0)
-          {
-            Bug bug = new Bug(200, 25);
-            gameObjects.add(bug);
-            println(i);
-            i ++;
-          }
+          Bug bug = new Bug(0, 25);
+          gameObjects.add(bug);
+          i ++;
         }
-        
-      }
+      }      
+    }
 
-  
     for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
     {
       GameObject go = gameObjects.get(i);
@@ -115,7 +108,6 @@ void draw()
     text("Health = " + health, width * 0.1, height * 0.8);
     fill(0, 0, 200);
     text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);
-
 
   }// End screen 1
   
