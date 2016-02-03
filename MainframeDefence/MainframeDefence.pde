@@ -1,30 +1,23 @@
-PImage startscreen;
+PImage startscreen, cpu;
 int screen; // Variable to change screen
 int health = 10;
 int level = 1;
+int memory = 50;
+int i, begin;
 
 void setup()
 {
   size(displayWidth, displayHeight);
   
-  for(int j = 0; j < level; j ++)
-  {
-    for(int i = 0; i < 5; i ++)
-    {
-        if (frameCount % 180 == 0)
-        {
-        Bug bug = new Bug(200, 25);
-        gameObjects.add(bug);
-      
-    }
-  }
-      }
+
   // Load images here to avoid memory problems
   startscreen = loadImage("server2.jpg");
+  cpu = loadImage("CPU.jpg");
   
 }// End Setup()
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+
 
 void draw()
 {
@@ -94,7 +87,24 @@ void draw()
     rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
     //rect(width * 0.1, height * 0.4, 192.5, 432);
     //rect(width * 0.1, height * 0.7, width, height * 0.15);
+    image(cpu, 10, height * 0.38, 200, 200);
     
+      if(begin == 1)
+      {
+        if(i < 5)
+        {
+          if (frameCount % 120 == 0)
+          {
+            Bug bug = new Bug(200, 25);
+            gameObjects.add(bug);
+            println(i);
+            i ++;
+          }
+        }
+        
+      }
+
+  
     for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
     {
       GameObject go = gameObjects.get(i);
@@ -102,10 +112,25 @@ void draw()
       go.render();
     }
     
-    text("Health = " + health, width * 0.1, height * 0.9);
+    text("Health = " + health, width * 0.1, height * 0.8);
+    fill(0, 0, 200);
+    text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);
 
 
   }// End screen 1
   
 }// End draw()
+
+void keyPressed() 
+{
+  if (key == CODED) 
+  {
+    if (keyCode == UP) 
+    {
+      begin = 1;
+    }      
+  }   
+}
+
+
 
