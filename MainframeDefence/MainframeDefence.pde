@@ -84,6 +84,15 @@ void draw()
     rect(width * 0.8, height * 0.15, 192.5, 432);
     rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
     image(cpu, 10, height * 0.38, 200, 200);
+    rect(width  * 0.4, height * 0.7, 950, 300);
+    stroke(0, 0, 150);
+    noFill();
+    rect(width * 0.7, height * 0.28, 100, 100);
+    rect(width * 0.45, height * 0.28, 100, 100);
+    rect(width * 0.2, height * 0.28, 100, 100);
+    rect(width * 0.325, height * 0.575, 100, 100);
+    rect(width * 0.575, height * 0.575, 100, 100);
+    stroke(255);
     
     if(begin == 1)
     {
