@@ -78,13 +78,13 @@ class Bug extends GameObject
     }
     
     translate(x2,y2);
-    
+    strokeWeight(5);
     stroke(0);
     scale(0.5);
     fill(0, 255, 0);
     rect(250, 100, 120, 250, 50);
     rect(270,80, 80, 30,100);
-    strokeWeight(5);
+    
     line(280, 100, 240, 40);
     line(340, 100, 380, 40);
     

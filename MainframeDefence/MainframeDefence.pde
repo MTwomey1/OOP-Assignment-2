@@ -78,6 +78,7 @@ void draw()
   if(screen == 1)
   {
     background(127);
+    strokeWeight(10);
     //Drawing Path
     fill(255);
     rect(0, height * 0.1, width * 0.9, height * 0.15);
@@ -87,11 +88,16 @@ void draw()
     rect(width  * 0.4, height * 0.7, 950, 300);
     stroke(0, 0, 150);
     noFill();
-    rect(width * 0.7, height * 0.28, 100, 100);
-    rect(width * 0.45, height * 0.28, 100, 100);
-    rect(width * 0.2, height * 0.28, 100, 100);
-    rect(width * 0.325, height * 0.575, 100, 100);
-    rect(width * 0.575, height * 0.575, 100, 100);
+    rect(width * 0.7, height * 0.28, 100, 100, 5);
+    rect(width * 0.45, height * 0.28, 100, 100, 5);
+    rect(width * 0.2, height * 0.28, 100, 100, 5);
+    rect(width * 0.325, height * 0.575, 100, 100, 5);
+    rect(width * 0.575, height * 0.575, 100, 100, 5);
+    stroke(127, 0, 0);
+    ellipse(width * 0.342, height * 0.05, 50, 50);
+    ellipse(width * 0.592, height * 0.05, 50, 50);
+    ellipse(width * 0.342, height * 0.3, 50, 50);
+    ellipse(width * 0.342, height * 0.3, 50, 50);
     stroke(255);
     
     if(begin == 1)
