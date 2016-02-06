@@ -104,7 +104,7 @@ class Bug extends GameObject
     stroke(255);
     popMatrix();
     popMatrix();    
-    
+    noFill();
   }// End render()
   
 }// End Classs Bug

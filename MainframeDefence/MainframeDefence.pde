@@ -110,7 +110,6 @@ void draw()
       {     
           if(memory >= 10)
           {
-            println("yes2");
             flag = 1;
           }
       }
@@ -122,10 +121,38 @@ void draw()
       {
         if(mouseX > width * 0.2 && mouseX < (width * 0.2) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
         {
-          println("yes3");
           Turret turret = new Turret(width * 0.2, height * 0.28);
           gameObjects.add(turret);
-          flag = 0;          
+          flag = 0;
+          memory -=10;          
+        }
+        if(mouseX > width * 0.45 && mouseX < (width * 0.45) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
+        {
+          Turret turret = new Turret(width * 0.45, height * 0.28);
+          gameObjects.add(turret);
+          flag = 0;
+          memory -=10;          
+        }
+        if(mouseX > width * 0.7 && mouseX < (width * 0.7) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
+        {
+          Turret turret = new Turret(width * 0.7, height * 0.28);
+          gameObjects.add(turret);
+          flag = 0;
+          memory -=10;          
+        }
+        if(mouseX > width * 0.325 && mouseX < (width * 0.325) + 100 && mouseY > height * 0.575 && mouseY < (height * 0.575) + 100)
+        {
+          Turret turret = new Turret(width * 0.325, height * 0.575);
+          gameObjects.add(turret);
+          flag = 0;
+          memory -=10;          
+        }
+        if(mouseX > width * 0.575 && mouseX < (width * 0.575) + 100 && mouseY > height * 0.575 && mouseY < (height * 0.575) + 100)
+        {
+          Turret turret = new Turret(width * 0.575, height * 0.575);
+          gameObjects.add(turret);
+          flag = 0;
+          memory -=10;          
         }
       }
     }  
@@ -150,6 +177,7 @@ void draw()
       go.render();
     }
     
+    fill(0, 255, 0);
     text("Health = " + health, width * 0.1, height * 0.8);
     fill(0, 0, 200);
     text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);
@@ -157,6 +185,7 @@ void draw()
 
   }// End screen 1
   
+  //checkCollisions();
 }// End draw()
 
 void keyPressed() 
@@ -168,6 +197,32 @@ void keyPressed()
       begin = 1;
     }      
   }   
+}
+
+void checkCollisions()
+{
+ for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
+ {
+    GameObject go = gameObjects.get(i);
+    if (go instanceof Bug)
+    {
+      for(int j = gameObjects.size() - 1 ; j >= 0   ;j --)
+      {
+        GameObject other = gameObjects.get(j);
+        if (other instanceof Turret) // Check the type of a object
+        {
+          // Bounding circle collisions
+          if (go.pos.dist(other.pos) < 500)
+          {
+            // Do some casting
+            
+            gameObjects.remove(go);
+          }
+        }
+       
+      }
+    }
+ } 
 }
 
 
