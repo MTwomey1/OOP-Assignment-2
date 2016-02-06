@@ -9,7 +9,7 @@ class Bullet extends GameObject
   
   void render()
   {
-    stroke(c);
+    stroke(0);
     // Just draw a small vertical line
     pushMatrix();
     translate(pos.x, pos.y);
@@ -32,3 +32,4 @@ class Bullet extends GameObject
       gameObjects.remove(this);
     }
   }
+}

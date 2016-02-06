@@ -3,7 +3,8 @@ int screen; // Variable to change screen
 int health = 10;
 int level = 1;
 int memory = 50;
-int i, begin;
+int i, begin, flag;
+float turretX, turretY;
 
 void setup()
 {
@@ -86,6 +87,9 @@ void draw()
     rect(width * 0.1, height * 0.4, width * 0.7, height *0.15);
     image(cpu, 10, height * 0.38, 200, 200);
     rect(width  * 0.4, height * 0.7, 950, 300);
+    stroke(0, 0, 200);
+    rect(width * 0.5, height * 0.8, 150, 150, 5);
+    rect(width * 0.7, height * 0.8, 150, 150, 5);
     stroke(0, 0, 150);
     noFill();
     rect(width * 0.7, height * 0.28, 100, 100, 5);
@@ -99,6 +103,32 @@ void draw()
     ellipse(width * 0.342, height * 0.3, 50, 50);
     ellipse(width * 0.342, height * 0.3, 50, 50);
     stroke(255);
+    
+    if(mousePressed)
+    {
+      if(mouseX > width * 0.5 && mouseX < (width * 0.5) + 150 && mouseY > height * 0.8 && mouseY < (height * 0.8) + 150)
+      {     
+          if(memory >= 10)
+          {
+            println("yes2");
+            flag = 1;
+          }
+      }
+    }
+    
+    if(flag == 1)
+    {
+      if(mousePressed)
+      {
+        if(mouseX > width * 0.2 && mouseX < (width * 0.2) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
+        {
+          println("yes3");
+          Turret turret = new Turret(width * 0.2, height * 0.28);
+          gameObjects.add(turret);
+          flag = 0;          
+        }
+      }
+    }  
     
     if(begin == 1)
     {
@@ -123,6 +153,7 @@ void draw()
     text("Health = " + health, width * 0.1, height * 0.8);
     fill(0, 0, 200);
     text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);
+    
 
   }// End screen 1
   
