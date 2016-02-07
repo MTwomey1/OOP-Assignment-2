@@ -90,6 +90,15 @@ void draw()
     stroke(0, 0, 200);
     rect(width * 0.5, height * 0.8, 150, 150, 5);//Turret select
     rect(width * 0.7, height * 0.8, 150, 150, 5);//Firewall select
+    stroke(255, 0, 0);
+    ellipse(width * 0.5 + 75, height * 0.8 + 75, 75, 75);
+    line(width * 0.5 + 75, height * 0.8, width * 0.5 + 75, height * 0.8 + 150);
+    line(width * 0.5, height * 0.8 + 75, width * 0.5 + 150, height * 0.8 + 75);
+    fill(255, 0, 0);
+    rect(width * 0.7 + 37.5, height * 0.8, 75, 150);
+    stroke(0);
+    line(width * 0.7 + 37.5, height * 0.8, width * 0.7 + 37.5, height * 0.8 + 150);
+    line(width * 0.7 + 75 + 37.5, height * 0.8, width * 0.7 + 75 + 37.5, height * 0.8 + 150);
     stroke(0, 0, 150);
     noFill();
     rect(width * 0.7, height * 0.28, 100, 100, 5);
@@ -106,9 +115,9 @@ void draw()
     text("Select Security!",width * 0.65, height * 0.75);
     stroke(0);
     line (width * 0.55, height * 0.76, width * 0.55 + textWidth("Select security! "), height * 0.76);
-    fill(0, 255, 0);
+    fill(0);
     text("Update", width * 0.45, height * 0.84);
-    text("Turret", width * 0.45, height * 0.88);
+    text("Turret", width * 0.45, height * 0.89);
     text("Firewall", width * 0.84, height * 0.85);
     stroke(255);
     
@@ -122,10 +131,21 @@ void draw()
             flag = 1;
           }
       }
+      if(mouseX > width * 0.7 && mouseX < (width * 0.7) + 150 && mouseY > height * 0.8 && mouseY < (height * 0.8) + 150)
+      {
+        if(memory >= 15)
+        {
+          flag = 2;
+        }
+      }
     }
     
     if(flag == 1)
     {
+      stroke(255,255,0);
+      noFill();
+      rect(width * 0.5, height * 0.8, 150, 150, 5);//Turret select
+      stroke(255);
       if(mousePressed)
       {
         if(mouseX > width * 0.2 && mouseX < (width * 0.2) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
@@ -164,7 +184,23 @@ void draw()
           memory -=10;          
         }
       }
-    }  
+    }
+    
+    if(flag == 2)
+    {
+      stroke(255,255,0);
+      noFill();
+      rect(width * 0.7, height * 0.8, 150, 150, 5);//Firewall select
+      stroke(255);
+      if(mousePressed)
+      {
+        if(mouseX > width * 0.2 && mouseX < (width * 0.2) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
+        {          
+          flag = 0;
+          memory -=15;          
+        }
+      }
+    }
     
     if(begin == 1)
     {
