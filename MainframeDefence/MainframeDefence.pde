@@ -88,8 +88,8 @@ void draw()
     image(cpu, 10, height * 0.38, 200, 200);
     rect(width  * 0.4, height * 0.7, 950, 300);
     stroke(0, 0, 200);
-    rect(width * 0.5, height * 0.8, 150, 150, 5);
-    rect(width * 0.7, height * 0.8, 150, 150, 5);
+    rect(width * 0.5, height * 0.8, 150, 150, 5);//Turret select
+    rect(width * 0.7, height * 0.8, 150, 150, 5);//Firewall select
     stroke(0, 0, 150);
     noFill();
     rect(width * 0.7, height * 0.28, 100, 100, 5);
@@ -102,7 +102,16 @@ void draw()
     ellipse(width * 0.592, height * 0.05, 50, 50);
     ellipse(width * 0.342, height * 0.3, 50, 50);
     ellipse(width * 0.342, height * 0.3, 50, 50);
+    fill(255, 0, 0);
+    text("Select Security!",width * 0.65, height * 0.75);
+    stroke(0);
+    line (width * 0.55, height * 0.76, width * 0.55 + textWidth("Select security! "), height * 0.76);
+    fill(0, 255, 0);
+    text("Update", width * 0.45, height * 0.84);
+    text("Turret", width * 0.45, height * 0.88);
+    text("Firewall", width * 0.84, height * 0.85);
     stroke(255);
+    
     
     if(mousePressed)
     {
