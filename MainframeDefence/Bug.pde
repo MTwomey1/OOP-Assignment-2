@@ -1,45 +1,43 @@
 class Bug extends GameObject
 {
-  float x;
-  float y;
   float x2;
   float y2;
   int speed = 2;
   
   Bug(float x, float y)
   {
-    this.x = x;
-    this.y = y; 
+    pos.x = x;
+    pos.y = y;
   }
   
   void update()
   {
-    if(x < width * 0.92 && y == 25 )
+    if(pos.x < width * 0.92 && pos.y == 25 )
     {
-        x += speed;
+        pos.x += speed;
     }
     
-    if(x > width * 0.92 && y == 25)
+    if(pos.x > width * 0.92 && pos.y == 25)
     {
-      x = width * 0.92;
+      pos.x = width * 0.92;
     }
      
-    if(x == width * 0.92 && y == 25)
+    if(pos.x == width * 0.92 && pos.y == 25)
     {
-      y = 300;        
+      pos.y = 300;        
     }
     
-    if(y >= 300 && y < height *0.58) 
+    if(pos.y >= 300 && pos.y < height *0.58) 
     {
-      y += speed;
+      pos.y += speed;
     }
     
-    if(y > height * 0.58 && x == width * 0.92)
+    if(pos.y > height * 0.58 && pos.x == width * 0.92)
     {
-       y = height * 0.58;
+       pos.y = height * 0.58;
     }
     
-    if(y == height * 0.58 && x == width * 0.92 && y2 == 0)
+    if(pos.y == height * 0.58 && pos.x == width * 0.92 && y2 == 0)
     {
        y2 = -230;
        x2 = -40;    
@@ -52,7 +50,7 @@ class Bug extends GameObject
     
     if(y2 == -1600)
     {
-       health --;
+       health -= 2;
        gameObjects.remove(this);
     }
 
@@ -61,18 +59,18 @@ class Bug extends GameObject
   void render()
   {   
     pushMatrix();
-    translate(x, y);
+    translate(pos.x, pos.y);
        
     pushMatrix();
       
     rotate(radians(90)); 
     
-    if(x >= width * 0.92)
+    if(pos.x >= width * 0.92)
     {
       rotate(radians(90));
     }
     
-    if(y == height * 0.58 && x == width * 0.92)
+    if(pos.y == height * 0.58 && pos.x == width * 0.92)
     {
       rotate(radians(90));
     }
@@ -101,6 +99,8 @@ class Bug extends GameObject
   
     line(360, 200, 395, 120);
     line(395, 120, 420, 123);
+    noFill();
+    ellipse(320, 200, 300, 300);
     stroke(255);
     popMatrix();
     popMatrix();    

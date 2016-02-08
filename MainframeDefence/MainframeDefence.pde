@@ -4,7 +4,6 @@ int health = 10;
 int level = 1;
 int memory = 50;
 int i, begin, flag;
-float turretX, turretY;
 
 void setup()
 {
@@ -235,12 +234,11 @@ void draw()
     fill(0, 255, 0);
     text("Health = " + health, width * 0.1, height * 0.8);
     fill(0, 0, 200);
-    text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);
-    
+    text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);    
 
   }// End screen 1
   
-  //checkCollisions();
+  checkCollisions();
 }// End draw()
 
 void keyPressed() 
@@ -267,10 +265,10 @@ void checkCollisions()
         if (other instanceof Turret) // Check the type of a object
         {
           // Bounding circle collisions
-          if (go.pos.dist(other.pos) < 500)
+          if (go.pos.dist(other.pos) < 300)
           {
             // Do some casting
-            
+            println("Hit");
             gameObjects.remove(go);
           }
         }
