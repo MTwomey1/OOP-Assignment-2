@@ -268,9 +268,9 @@ if (keyCode == DOWN)
 }
 
 void checkCollisions()
-{
- for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
- {
+{    
+  for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
+  {
     GameObject go = gameObjects.get(i);
     if (go instanceof Bug)
     {
@@ -282,9 +282,8 @@ void checkCollisions()
           // Bounding circle collisions
           if (go.pos.dist(other.pos) < 300)
           {
-            // Do some casting
             Bullet bullet = new Bullet(other.pos.x + 50, other.pos.y + 50);
-           gameObjects.add(bullet);
+            gameObjects.add(bullet);
            
            if(frameCount % 120 == 0)
            {
@@ -292,14 +291,12 @@ void checkCollisions()
              gameObjects.remove(bullet);
              gameObjects.remove(other);
              memory += 8;
-
            }
           }
-        }
-       
+        }       
       }
     }
- } 
+  } 
 }
 
 

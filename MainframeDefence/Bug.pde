@@ -123,7 +123,6 @@ class Bug extends GameObject
     popMatrix();
     popMatrix();    
     noFill();
-    println(y2);
   }// End render()
   
 }// End Classs Bug
