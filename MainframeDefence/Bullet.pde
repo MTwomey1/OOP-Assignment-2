@@ -1,9 +1,11 @@
 class Bullet extends GameObject
 {
   
-  Bullet()
+  Bullet(float x, float y)
   {
-    speed = 10.0f;
+    pos.x = x;
+    pos.y = y;
+    speed = 2.0f;
     w = 10;
   }
   
@@ -14,8 +16,9 @@ class Bullet extends GameObject
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(theta);
-    line(0, -5, 0, 5);
+    line(0, 0, 0, 0.002);
     popMatrix();    
+    noStroke();
   }
   
   void update()
@@ -26,10 +29,5 @@ class Bullet extends GameObject
     forward.mult(speed);
     pos.add(forward);
     
-    if (pos.x < 0 || pos.y < 0 || pos.x > width || pos.y > height)
-    {
-      // Im dead!
-      gameObjects.remove(this);
-    }
   }
 }

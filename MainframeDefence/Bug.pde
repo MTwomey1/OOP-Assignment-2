@@ -100,7 +100,7 @@ class Bug extends GameObject
     line(360, 200, 395, 120);
     line(395, 120, 420, 123);
     noFill();
-    ellipse(320, 200, 300, 300);
+    //ellipse(320, 200, 300, 300);
     stroke(255);
     popMatrix();
     popMatrix();    

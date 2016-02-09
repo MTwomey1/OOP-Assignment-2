@@ -18,7 +18,7 @@ class Turret extends GameObject
     line(pos.x , pos.y + 50 , pos.x + 100, pos.y + 50);
     
     noFill();
-    ellipse(pos.x + 50, pos.y + 50, 500, 500);
+    //ellipse(pos.x + 50, pos.y + 50, 500, 500);
     
     noStroke();
   }

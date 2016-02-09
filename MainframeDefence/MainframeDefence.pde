@@ -213,9 +213,9 @@ void draw()
     
     if(begin == 1)
     {
-      if(i < 5)
+      if(i < 3)
       {
-        if (frameCount % 120 == 0)
+        if (frameCount % 240 == 0)
         {
           Bug bug = new Bug(0, 25);
           gameObjects.add(bug);
@@ -268,8 +268,16 @@ void checkCollisions()
           if (go.pos.dist(other.pos) < 300)
           {
             // Do some casting
-            println("Hit");
-            gameObjects.remove(go);
+            Bullet bullet = new Bullet(other.pos.x + 50, other.pos.y + 50);
+           gameObjects.add(bullet);
+           
+           if(frameCount % 120 == 0)
+           {
+             gameObjects.remove(go);
+             gameObjects.remove(bullet);
+             gameObjects.remove(other);
+
+           }
           }
         }
        
