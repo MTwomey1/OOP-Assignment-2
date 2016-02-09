@@ -4,7 +4,7 @@ int health = 10;
 int level = 1;
 int memory = 50;
 int i, begin, flag;
-int wall1, wall2;
+int wall1 = 3, wall2 = 3;
 
 void setup()
 {
@@ -188,15 +188,15 @@ void draw()
           gameObjects.add(firewall);
           flag = 0;
           memory -=15;
-          wall1 = 1;          
+          wall1 = 2;          
         }
         if(mouseX > width * 0.58 && mouseX < (width * 0.58) + 50 && mouseY > height * 0.57 && mouseY < (height * 0.57) + 50)
         {
-          Firewall firewall1 = new Firewall(width * 0.58, height * 0.57);
-          gameObjects.add(firewall1);
+          Firewall firewall = new Firewall(width * 0.58, height * 0.57);
+          gameObjects.add(firewall);
           flag = 0;
           memory -=15;   
-          wall2 = 1; 
+          wall2 = 2; 
      
         }
       }
@@ -204,7 +204,7 @@ void draw()
     
     if(begin == 1)
     {
-      if(i < 1)
+      if(i < 5)
       {
         if (frameCount % 240 == 0)
         {
@@ -212,7 +212,8 @@ void draw()
           gameObjects.add(bug);
           i ++;
         }
-      }      
+      } 
+           
     }
 
     for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
@@ -224,12 +225,31 @@ void draw()
     
     fill(0, 255, 0);
     text("Health = " + health, width * 0.1, height * 0.8);
+    text("UP = Go", width * 0.7, height * 0.05);
+    fill(255, 0,0);
+    text("DOWN = Reset", width * 0.87, height * 0.05);
     fill(0, 0, 200);
     text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);    
 
   }// End screen 1
   
   checkCollisions();
+  
+  if(health == 0)
+  {
+    rect(width * 0.28, height * 0.3, 850, 400);
+    fill(255,0,0);
+    textSize(70);
+    text("System Down, Hard Luck", width * 0.5, height * 0.42);
+    text("Goodbye!", width * 0.5, height * 0.5);
+    
+  if(frameCount % 240 == 0)
+  {
+    exit();
+  }  
+      
+    
+  }
 }// End draw()
 
 void keyPressed() 
@@ -239,7 +259,11 @@ void keyPressed()
     if (keyCode == UP) 
     {
       begin = 1;
-    }      
+    }
+if (keyCode == DOWN) 
+    {
+      i = 0;
+    }     
   }   
 }
 
@@ -267,6 +291,7 @@ void checkCollisions()
              gameObjects.remove(go);
              gameObjects.remove(bullet);
              gameObjects.remove(other);
+             memory += 8;
 
            }
           }

@@ -53,21 +53,22 @@ class Bug extends GameObject
        health -= 2;
        gameObjects.remove(this);
     }
-    if(wall1 == 1)
+    if(wall1 == 2 || wall1 == 1)
     {
       if(y2 == -1208)
       {
         gameObjects.remove(this);
         memory += 5;
+        wall1 --;
       }
     }
-    if(wall2 == 1)
+    if(wall2 == 2 || wall2 == 1)
     {
       if(y2 == -698)
       {
         gameObjects.remove(this);       
         memory += 5; 
-        wall2 = 0;
+        wall2 --;
       }
     }
 

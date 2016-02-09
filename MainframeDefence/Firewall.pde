@@ -27,8 +27,16 @@ class Firewall extends GameObject
     if(wall2 == 0)
     {
       gameObjects.remove(this);
+      wall2 = 3;
     }
+    if(wall1 == 0)
+    {
+      gameObjects.remove(this);
+      wall2 = 3;
+    }      
   }
+
+  
   
 }// End class turret
 
