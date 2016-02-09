@@ -2,6 +2,7 @@ class Firewall extends GameObject
 {
   float x;
   float y;
+
   
   Firewall(float x, float y)
   {
@@ -23,6 +24,10 @@ class Firewall extends GameObject
   
   void update()
   {
+    if(wall2 == 0)
+    {
+      gameObjects.remove(this);
+    }
   }
   
 }// End class turret

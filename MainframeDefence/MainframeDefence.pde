@@ -4,6 +4,7 @@ int health = 10;
 int level = 1;
 int memory = 50;
 int i, begin, flag;
+int wall1, wall2;
 
 void setup()
 {
@@ -186,21 +187,24 @@ void draw()
           Firewall firewall = new Firewall(width * 0.33, height * 0.57);
           gameObjects.add(firewall);
           flag = 0;
-          memory -=15;          
+          memory -=15;
+          wall1 = 1;          
         }
         if(mouseX > width * 0.58 && mouseX < (width * 0.58) + 50 && mouseY > height * 0.57 && mouseY < (height * 0.57) + 50)
         {
-          Firewall firewall = new Firewall(width * 0.58, height * 0.57);
-          gameObjects.add(firewall);
+          Firewall firewall1 = new Firewall(width * 0.58, height * 0.57);
+          gameObjects.add(firewall1);
           flag = 0;
-          memory -=15;          
+          memory -=15;   
+          wall2 = 1; 
+     
         }
       }
     }
     
     if(begin == 1)
     {
-      if(i < 3)
+      if(i < 1)
       {
         if (frameCount % 240 == 0)
         {

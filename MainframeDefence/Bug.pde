@@ -53,6 +53,23 @@ class Bug extends GameObject
        health -= 2;
        gameObjects.remove(this);
     }
+    if(wall1 == 1)
+    {
+      if(y2 == -1208)
+      {
+        gameObjects.remove(this);
+        memory += 5;
+      }
+    }
+    if(wall2 == 1)
+    {
+      if(y2 == -698)
+      {
+        gameObjects.remove(this);       
+        memory += 5; 
+        wall2 = 0;
+      }
+    }
 
   }// End update()
   
@@ -105,6 +122,7 @@ class Bug extends GameObject
     popMatrix();
     popMatrix();    
     noFill();
+    println(y2);
   }// End render()
   
 }// End Classs Bug
