@@ -13,10 +13,10 @@ class Firewall extends GameObject
   {
     fill(255, 0, 0);
     noStroke();
-    rect(x, y + 50, 50, 190);
+    rect(x, y - 200, 50, 190);
     stroke(0);
-    line(x, y + 50, x, y + 240);
-    line(x + 50, y + 50, x + 50, y + 240);
+    line(x, y , x, y - 200);
+    line(x + 50, y, x + 50, y - 200);
     noStroke();
     noFill();
   }

@@ -103,11 +103,11 @@ void draw()
     rect(width * 0.7, height * 0.28, 100, 100, 5);
     rect(width * 0.45, height * 0.28, 100, 100, 5);
     rect(width * 0.2, height * 0.28, 100, 100, 5);
-    rect(width * 0.325, height * 0.575, 100, 100, 5);
-    rect(width * 0.575, height * 0.575, 100, 100, 5);
+    //rect(width * 0.325, height * 0.575, 100, 100, 5);
+    //rect(width * 0.575, height * 0.575, 100, 100, 5);
     stroke(127, 0, 0);
-    rect(width * 0.33, height * 0.05, 50, 50);// Firewall box
-    rect(width * 0.58, height * 0.05, 50, 50);// Firewall box
+    rect(width * 0.33, height * 0.57, 50, 50);// Firewall box
+    rect(width * 0.58, height * 0.57, 50, 50);// Firewall box
     fill(255, 0, 0);
     text("Select Security!",width * 0.65, height * 0.75);
     stroke(0);
@@ -169,20 +169,7 @@ void draw()
           flag = 0;
           memory -=10;          
         }
-        if(mouseX > width * 0.325 && mouseX < (width * 0.325) + 100 && mouseY > height * 0.575 && mouseY < (height * 0.575) + 100)
-        {
-          Turret turret = new Turret(width * 0.325, height * 0.575);
-          gameObjects.add(turret);
-          flag = 0;
-          memory -=10;          
-        }
-        if(mouseX > width * 0.575 && mouseX < (width * 0.575) + 100 && mouseY > height * 0.575 && mouseY < (height * 0.575) + 100)
-        {
-          Turret turret = new Turret(width * 0.575, height * 0.575);
-          gameObjects.add(turret);
-          flag = 0;
-          memory -=10;          
-        }
+
       }
     }
     
@@ -194,16 +181,16 @@ void draw()
       stroke(255);
       if(mousePressed)
       {
-        if(mouseX > width * 0.33 && mouseX < (width * 0.33) + 50 && mouseY > height * 0.05 && mouseY < (height * 0.05) + 50)
+        if(mouseX > width * 0.33 && mouseX < (width * 0.33) + 50 && mouseY > height * 0.57 && mouseY < (height * 0.57) + 50)
         {
-          Firewall firewall = new Firewall(width * 0.33, height * 0.05);
+          Firewall firewall = new Firewall(width * 0.33, height * 0.57);
           gameObjects.add(firewall);
           flag = 0;
           memory -=15;          
         }
-        if(mouseX > width * 0.58 && mouseX < (width * 0.58) + 50 && mouseY > height * 0.05 && mouseY < (height * 0.05) + 50)
+        if(mouseX > width * 0.58 && mouseX < (width * 0.58) + 50 && mouseY > height * 0.57 && mouseY < (height * 0.57) + 50)
         {
-          Firewall firewall = new Firewall(width * 0.58, height * 0.05);
+          Firewall firewall = new Firewall(width * 0.58, height * 0.57);
           gameObjects.add(firewall);
           flag = 0;
           memory -=15;          
