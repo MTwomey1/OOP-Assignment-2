@@ -9,3 +9,4 @@ Stop the bugs making their way to the CPU and ruining the system!
 - Use mouse to select weapons and kill bugs
 - Prevent bugs from reaching CPU
 - Gain more memory from killing bugs
+- Firewalls can kill 2 bugs
