@@ -221,11 +221,11 @@ void draw()
     
     fill(0, 255, 0);
     text("Health = " + health, width * 0.1, height * 0.8);
-    text("UP = Go", width * 0.7, height * 0.05);
+    text("UP = Go", width * 0.6, height * 0.05);
     fill(255, 0,0);
-    text("DOWN = Reset", width * 0.87, height * 0.05);
+    text("DOWN = Load Bugs", width * 0.87, height * 0.05);
     fill(0);
-    text("Kills: " + kills, width * 0.1, height * 0.05);
+    text("Kills: " + kills, width * 0.05, height * 0.05);
     fill(0, 0, 200);
     text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);    
 
