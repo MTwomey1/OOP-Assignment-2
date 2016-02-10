@@ -54,7 +54,7 @@ void draw()
       fill(0,150,0);
       rect(width / 2.22, height * 0.3, 200, 100, 10);
     }
-    
+    // If exit button clicked
     if(mouseX > width / 2.22 && mouseX < (width/2.22) + 200 && mouseY > height * 0.6 && mouseY < (height*0.6) + 100)
     {
       fill(255,0,0);
@@ -104,8 +104,6 @@ void draw()
     rect(width * 0.7, height * 0.28, 100, 100, 5);
     rect(width * 0.45, height * 0.28, 100, 100, 5);
     rect(width * 0.2, height * 0.28, 100, 100, 5);
-    //rect(width * 0.325, height * 0.575, 100, 100, 5);
-    //rect(width * 0.575, height * 0.575, 100, 100, 5);
     stroke(127, 0, 0);
     rect(width * 0.33, height * 0.57, 50, 50);// Firewall box
     rect(width * 0.58, height * 0.57, 50, 50);// Firewall box
@@ -122,26 +120,26 @@ void draw()
     text("15MBs", width * 0.84, height * 0.95);
     stroke(255);
     
-    
+    // Check Which Weapon Chosen
     if(mousePressed)
     {
       if(mouseX > width * 0.5 && mouseX < (width * 0.5) + 150 && mouseY > height * 0.8 && mouseY < (height * 0.8) + 150)
       {     
           if(memory >= 10)
           {
-            flag = 1;
+            flag = 1; // Allow to place turret
           }
       }
       if(mouseX > width * 0.7 && mouseX < (width * 0.7) + 150 && mouseY > height * 0.8 && mouseY < (height * 0.8) + 150)
       {
         if(memory >= 15)
         {
-          flag = 2;
+          flag = 2; // Allow to place firewall
         }
       }
     }
     
-    if(flag == 1)
+    if(flag == 1) // Turret Placement
     {
       stroke(255,255,0);
       noFill();
@@ -170,16 +168,16 @@ void draw()
           flag = 0;
           memory -=10;          
         }
-
       }
     }
     
-    if(flag == 2)
+    if(flag == 2) // Firewall placement
     {
       stroke(255,255,0);
       noFill();
       rect(width * 0.7, height * 0.8, 150, 150, 5);//Firewall select
       stroke(255);
+      
       if(mousePressed)
       {
         if(mouseX > width * 0.33 && mouseX < (width * 0.33) + 50 && mouseY > height * 0.57 && mouseY < (height * 0.57) + 50)
@@ -196,13 +194,12 @@ void draw()
           gameObjects.add(firewall);
           flag = 0;
           memory -=15;   
-          wall2 = 2; 
-     
+          wall2 = 2;     
         }
       }
     }
     
-    if(begin == 1)
+    if(begin == 1) // Adding bugs
     {
       if(i < 5)
       {
@@ -212,8 +209,7 @@ void draw()
           gameObjects.add(bug);
           i ++;
         }
-      } 
-           
+      }            
     }
 
     for(int i = gameObjects.size() - 1 ; i >= 0   ;i --)
@@ -237,7 +233,7 @@ void draw()
   
   checkCollisions();
   
-  if(health == 0)
+  if(health == 0) // If dead
   {
     rect(width * 0.28, height * 0.3, 850, 400);
     fill(255,0,0);

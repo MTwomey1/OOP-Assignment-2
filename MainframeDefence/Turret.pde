@@ -1,6 +1,5 @@
 class Turret extends GameObject
-{
-  
+{  
   Turret(float x, float y)
   {
     pos.x = x;
