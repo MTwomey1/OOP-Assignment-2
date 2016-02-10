@@ -58,6 +58,7 @@ class Bug extends GameObject
       if(y2 == -1208)
       {
         gameObjects.remove(this);
+        kills ++;
         memory += 5;
         wall1 --;
       }
@@ -66,7 +67,8 @@ class Bug extends GameObject
     {
       if(y2 == -698)
       {
-        gameObjects.remove(this);       
+        gameObjects.remove(this);  
+        kills ++;     
         memory += 5; 
         wall2 --;
       }

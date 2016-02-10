@@ -3,7 +3,7 @@ int screen; // Variable to change screen
 int health = 10;
 int level = 1;
 int memory = 50;
-int i, begin, flag;
+int i, begin, flag, kills;
 int wall1 = 3, wall2 = 3;
 
 void setup()
@@ -228,6 +228,8 @@ void draw()
     text("UP = Go", width * 0.7, height * 0.05);
     fill(255, 0,0);
     text("DOWN = Reset", width * 0.87, height * 0.05);
+    fill(0);
+    text("Kills: " + kills, width * 0.1, height * 0.05);
     fill(0, 0, 200);
     text("Memory = " + memory + " MBs", width * 0.13, height * 0.9);    
 
@@ -290,6 +292,7 @@ void checkCollisions()
              gameObjects.remove(go);
              gameObjects.remove(bullet);
              gameObjects.remove(other);
+             kills ++;
              memory += 8;
            }
           }

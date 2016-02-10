@@ -26,6 +26,10 @@ class Bullet extends GameObject
       
     forward.mult(speed);
     pos.add(forward);
-    
+        
+    if(pos.y < -191.6)
+    {
+      gameObjects.remove(this);
+    }    
   }
 }
