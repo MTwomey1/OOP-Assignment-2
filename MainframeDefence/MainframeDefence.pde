@@ -217,7 +217,7 @@ void draw()
     
     if(begin == 1) // Adding bugs
     {
-      if(i < 1)
+      if(i < 5)
       {
         if (frameCount % 240 == 0)
         {
