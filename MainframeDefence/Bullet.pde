@@ -1,11 +1,14 @@
 class Bullet extends GameObject
 {
+  AudioPlayer sound2;
   
   Bullet(float x, float y)
   {
     pos.x = x;
     pos.y = y;
     speed = 2.0f;
+    
+    sound2 = minim.loadFile("laser.mp3");
   }
   
   void render()
@@ -31,5 +34,11 @@ class Bullet extends GameObject
     {
       gameObjects.remove(this);
     }    
+  }
+  
+  void speak()
+  {
+    sound2.rewind();// Rewinds audio to beginning
+    sound2.play();
   }
 }

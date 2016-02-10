@@ -1,3 +1,8 @@
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer start;
+
 PImage startscreen, cpu;
 int screen; // Variable to change screen
 int health = 10;
@@ -14,6 +19,10 @@ void setup()
   startscreen = loadImage("server2.jpg");
   cpu = loadImage("CPU.jpg");
   
+  minim = new Minim(this); 
+  start = minim.loadFile("intro2.wav");
+  start.rewind();
+  start.play();
 }// End Setup()
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -22,6 +31,7 @@ void draw()
 {
   if(screen == 0)
   {
+    
     image(startscreen, 0, 0, width, height); // Show opeing image
     fill(127);
     stroke(0);
@@ -152,21 +162,24 @@ void draw()
           Turret turret = new Turret(width * 0.2, height * 0.28);
           gameObjects.add(turret);
           flag = 0;
-          memory -=10;          
+          memory -=10;
+          turret.speak();          
         }
         if(mouseX > width * 0.45 && mouseX < (width * 0.45) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
         {
           Turret turret = new Turret(width * 0.45, height * 0.28);
           gameObjects.add(turret);
           flag = 0;
-          memory -=10;          
+          memory -=10;
+          turret.speak();          
         }
         if(mouseX > width * 0.7 && mouseX < (width * 0.7) + 100 && mouseY > height * 0.28 && mouseY < (height * 0.28) + 100)
         {
           Turret turret = new Turret(width * 0.7, height * 0.28);
           gameObjects.add(turret);
           flag = 0;
-          memory -=10;          
+          memory -=10;
+          turret.speak();          
         }
       }
     }
@@ -282,12 +295,14 @@ void checkCollisions()
           {
             Bullet bullet = new Bullet(other.pos.x + 50, other.pos.y + 50);
             gameObjects.add(bullet);
-           
+                     
+          
            if(frameCount % 120 == 0)
            {
              gameObjects.remove(go);
              gameObjects.remove(bullet);
              gameObjects.remove(other);
+             bullet.speak();
              kills ++;
              memory += 8;
            }

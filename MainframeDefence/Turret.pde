@@ -1,9 +1,13 @@
 class Turret extends GameObject
-{  
+{ 
+  AudioPlayer sound1;
+  
   Turret(float x, float y)
   {
     pos.x = x;
     pos.y = y;
+    
+    sound1 = minim.loadFile("reload1.mp3");
   }
   
   void render()
@@ -21,9 +25,13 @@ class Turret extends GameObject
     
     noStroke();
   }
-  
   void update()
   {
+  }
+  void speak()
+  {
+    sound1.rewind();// Rewinds audio to beginning
+    sound1.play();
   }
   
 }// End class turret
