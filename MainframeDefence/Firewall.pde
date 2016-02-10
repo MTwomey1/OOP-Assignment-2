@@ -1,5 +1,7 @@
 class Firewall extends GameObject
 {
+  AudioPlayer fire;
+  
   float x;
   float y;
   
@@ -7,6 +9,8 @@ class Firewall extends GameObject
   {
     this.x = x;
     this.y = y; 
+    
+    fire = minim.loadFile("fire.mp3");
   }
   
   void render()
@@ -33,6 +37,12 @@ class Firewall extends GameObject
       gameObjects.remove(this);
       wall2 = 3;
     }      
+  }
+  
+  void speak()
+  {
+    fire.rewind();
+    fire.play();
   }
     
 }// End class Firewall

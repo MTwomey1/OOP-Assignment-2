@@ -1,7 +1,7 @@
 import ddf.minim.*;
 
 Minim minim;
-AudioPlayer start;
+AudioPlayer start, dead;
 
 PImage startscreen, cpu;
 int screen; // Variable to change screen
@@ -21,6 +21,7 @@ void setup()
   
   minim = new Minim(this); 
   start = minim.loadFile("intro2.wav");
+  dead = minim.loadFile("dead.mp3");
   start.rewind();
   start.play();
 }// End Setup()
@@ -199,7 +200,8 @@ void draw()
           gameObjects.add(firewall);
           flag = 0;
           memory -=15;
-          wall1 = 2;          
+          wall1 = 2;   
+          firewall.speak();       
         }
         if(mouseX > width * 0.58 && mouseX < (width * 0.58) + 50 && mouseY > height * 0.57 && mouseY < (height * 0.57) + 50)
         {
@@ -207,14 +209,15 @@ void draw()
           gameObjects.add(firewall);
           flag = 0;
           memory -=15;   
-          wall2 = 2;     
+          wall2 = 2;   
+          firewall.speak();  
         }
       }
     }
     
     if(begin == 1) // Adding bugs
     {
-      if(i < 5)
+      if(i < 1)
       {
         if (frameCount % 240 == 0)
         {
@@ -248,13 +251,19 @@ void draw()
   
   if(health == 0) // If dead
   {
+    dead.play();
+    fill(255);
+    stroke(0);
     rect(width * 0.28, height * 0.3, 850, 400);
     fill(255,0,0);
     textSize(70);
-    text("System Down, Hard Luck", width * 0.5, height * 0.42);
-    text("Goodbye!", width * 0.5, height * 0.5);
+    text("System Down, You Lose!", width * 0.5, height * 0.42);
+    fill(0, 0, 255);
+    text("Goodbye!", width * 0.5, height * 0.55);
+    noStroke();
+    textSize(50);
     
-  if(frameCount % 240 == 0)
+  if(frameCount % 480 == 0)
   {
     exit();
   }  
@@ -294,8 +303,7 @@ void checkCollisions()
           if (go.pos.dist(other.pos) < 300)
           {
             Bullet bullet = new Bullet(other.pos.x + 50, other.pos.y + 50);
-            gameObjects.add(bullet);
-                     
+            gameObjects.add(bullet);                     
           
            if(frameCount % 120 == 0)
            {

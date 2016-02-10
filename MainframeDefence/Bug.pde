@@ -1,5 +1,6 @@
 class Bug extends GameObject
 {
+  AudioPlayer shock, hit;
   float x2;
   float y2;
   int speed = 2;
@@ -8,6 +9,9 @@ class Bug extends GameObject
   {
     pos.x = x;
     pos.y = y;
+    
+    shock = minim.loadFile("shock.mp3");
+    hit = minim.loadFile("hit.mp3");
   }
   
   void update()
@@ -52,6 +56,8 @@ class Bug extends GameObject
     {
        health -= 2;
        gameObjects.remove(this);
+       hit.rewind();
+       hit.play();       
     }
     if(wall1 == 2 || wall1 == 1)
     {
@@ -61,6 +67,7 @@ class Bug extends GameObject
         kills ++;
         memory += 5;
         wall1 --;
+        speak();
       }
     }
     if(wall2 == 2 || wall2 == 1)
@@ -71,10 +78,17 @@ class Bug extends GameObject
         kills ++;     
         memory += 5; 
         wall2 --;
+        speak();
       }
     }
 
   }// End update()
+  void speak()
+  {
+    shock.rewind();
+    shock.play();
+  }
+
   
   void render()
   {   
