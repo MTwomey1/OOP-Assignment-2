@@ -10,3 +10,4 @@ Stop the bugs making their way to the CPU and ruining the system!
 - Prevent bugs from reaching CPU
 - Gain more memory from killing bugs
 - Firewalls can kill 2 bugs
+- Turrets can only kill 1 bug
